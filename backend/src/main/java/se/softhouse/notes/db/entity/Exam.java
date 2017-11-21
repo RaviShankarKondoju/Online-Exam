@@ -3,7 +3,7 @@ package se.softhouse.notes.db.entity;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
-public class Note {
+public class Exam {
     private int id;
 
     @NotEmpty
@@ -14,10 +14,10 @@ public class Note {
     @Length(min = 8, max = 255, message = "must be between 8 and 255 characters")
     private String text;
 
-    public Note() {
+    public Exam() {
     }
 
-    public Note(int id, String title, String text) {
+    public Exam(int id, String title, String text) {
         this.id = id;
         this.title = title;
         this.text = text;

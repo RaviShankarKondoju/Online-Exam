@@ -9,10 +9,8 @@ import io.dropwizard.db.DataSourceFactory;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-/**
- * @todo: this class should be renamed to 'MyProjectConfiguration' for your projects
- */
-class NotesConfiguration extends Configuration implements AssetsBundleConfiguration {
+
+class ExamConfiguration extends Configuration implements AssetsBundleConfiguration {
     @Valid
     @NotNull
     @JsonProperty("database")
