@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="quizApp">
+<head>
+    <meta charset="utf-8" />
+    <title>QuizApp</title>
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Spectral+SC" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+</head>
+
+<body>
+<div class="container">
+    <h1 class="title">QuizApp</h1>
+    <ng-view></ng-view>
+</div>
+
+<script src="js/angular.min.js"></script>
+<script src="js/angular-route.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!--<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>-->
+
+<!--services-->
+<script src="app/services/exam.service.js"></script>
+
+<!--factory-->
+<script src="app/factory/factory.js"></script>
+
+<!--controller-->
+<script src="app/exam-form/exam-form.controller.js"></script>
+
+<!--app-->
+<script src="app/config.js"></script>
+<script src="app/app.js"></script>
+
+
+
+</body>
+
+</html>

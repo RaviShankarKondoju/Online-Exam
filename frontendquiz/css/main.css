@@ -1,0 +1,27 @@
+body{
+    background-color: powderblue;
+}
+
+.title{
+    font-family: 'Varela Round', sans-serif;
+}
+.header{
+    font-family: 'Spectral SC', serif;
+}
+.form_style{
+    font-family: 'Varela Round', sans-serif;
+}
+.pa-header{
+    padding-bottom:9px;
+    margin:40px 0 20px;
+    border-bottom:1px solid;
+}
+.fw-code-copy{
+    position: relative;
+}
+.fw-code-copy-button{
+    background-color: blanchedalmond;
+    position: absolute;
+    right: 20px;
+    top: 52px
+}
