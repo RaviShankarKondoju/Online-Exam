@@ -27,7 +27,7 @@ public class ExamResource {
     }
 
     @GET
-    public List<Exam> getNotes() {
+    public List<Exam> getExams() {
         return examService.getExams();
     }
 
@@ -39,19 +39,19 @@ public class ExamResource {
 
     @PUT
     @Path("/{id}")
-    public void updateNote(@PathParam("id") int id, @Valid @NotNull Exam exam) {
+    public void updateNote(@PathParam("id") int id, @NotNull Exam exam) {
         exam.setId(id);
         examService.updateExam(exam);
     }
 
     @POST
-    public void createExam(@Valid @NotNull Exam exam) {
+    public void createExam(@NotNull Exam exam) {
         examService.createExam(exam);
     }
 
     @DELETE
     @Path("/{id}")
-    public void deleteNote(@PathParam("id") int id) {
+    public void deleteExam(@PathParam("id") int id) {
         examService.deleteExamBy(id);
     }
 }
