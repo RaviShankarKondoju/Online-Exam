@@ -1,13 +1,13 @@
 assets:
   overrides:
-    /: ../frontend/
+    /: ../frontendquiz/
 
 server:
   rootPath: '/api/*'
 
 database:
   driverClass: org.sqlite.JDBC
-  user: note
+  user: exam
   password: notes!
   url: jdbc:sqlite:notes.db
   properties:
