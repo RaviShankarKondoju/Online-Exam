@@ -12,10 +12,9 @@ function examService($http, $interpolate) {
     //     return $http.get(quiz());
     // }
 
-    function create(title, text) {
+    function create(questions) {
         var data = {
-            title: title,
-            text: text
+            questions: questions
         };
 
         return $http.post(exam(), data);
