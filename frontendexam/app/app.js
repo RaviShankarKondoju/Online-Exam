@@ -1,5 +1,5 @@
 angular.module('poll', ['ngRoute'])
-    // .factory('examService', examService)
+.factory('examService', examService)
     .factory('formDataService', formDataService)
     .component('quiz', {
         templateUrl: 'app/exam-form/exam-form.tpl',
@@ -31,6 +31,6 @@ angular.module('poll', ['ngRoute'])
         //     onReset: '<'
         // }
     })
-    .component('navigation', { templateUrl: 'app/navigation/navigation.tpl' })
-    .component('info', { templateUrl: 'app/info/info.tpl' })
+    .component('navigation', {templateUrl: 'app/navigation/navigation.tpl'})
+    .component('info', {templateUrl: 'app/info/info.tpl'})
     .config(appConfig);
