@@ -14,24 +14,24 @@ import java.util.Optional;
 
 @RegisterMapperFactory(BeanMapperFactory.class)
 public interface ExamDAO {
-    @SqlUpdate("CREATE TABLE IF NOT EXISTS `quiz_questionnaire`(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, " + //
+    @SqlUpdate("CREATE TABLE IF NOT EXISTS `quiz`(id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, " + //
             "title VARCHAR(12), " + //
             "text VARCHAR(255))")
     void createTable();
 
-    @SqlQuery("SELECT * FROM `quiz_questionnaire`")
+    @SqlQuery("SELECT * FROM `quiz`")
     List<Exam> selectAll();
 
-    @SqlQuery("SELECT * FROM `quiz_questionnaire` WHERE id = :id")
+    @SqlQuery("SELECT * FROM `quiz` WHERE id = :id")
     @SingleValueResult
     Optional<Exam> get(@Bind("id") int id);
 
-    @SqlUpdate("INSERT INTO `quiz_questionnaire` (title, text) VALUES(:title, :text)")
+    @SqlUpdate("INSERT INTO `quiz` (title, text) VALUES(:title, :text)")
     void insert(@BindBean Exam exam);
 
-    @SqlUpdate("UPDATE `quiz_questionnaire` SET title = :title, text = :text WHERE id = :id")
+    @SqlUpdate("UPDATE `quiz` SET title = :title, text = :text WHERE id = :id")
     void update(@BindBean Exam exam);
 
-    @SqlUpdate("DELETE FROM `quiz_questionnaire` WHERE id = :id")
+    @SqlUpdate("DELETE FROM `quiz` WHERE id = :id")
     void delete(@Bind("id") int id);
 }
