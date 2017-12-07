@@ -4,10 +4,11 @@ function formDataService() {
     var addData = function(newObj) {
 
         formData = newObj;
+        console.log(formData)
 
     };
 
-    var getData = function() {
+    var getDataquiz = function() {
 
         return formData;
 
@@ -29,7 +30,7 @@ function formDataService() {
 
     return {
         addData: addData,
-        getData: getData,
+        getDataquiz: getDataquiz,
         setStep: setStep,
         getStep: getStep
     }
