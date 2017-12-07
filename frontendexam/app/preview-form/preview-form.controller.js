@@ -11,7 +11,8 @@ function FormControl(formDataService) {
 
     vm.step = formDataService.getStep();
 
-    vm.formData = formDataService.getData();
+    vm.formData = formDataService.getDataquiz();
+
 
     function $onInit() {
         // vm.notesController will be our parent controller (NotesController)
@@ -19,14 +20,13 @@ function FormControl(formDataService) {
     }
 
     function togglePreview() {
-
         vm.preview = (vm.preview === false) ? true : false;
     }
 
     function setStep(num) {
-
-        formDataService.setStep(num);
-       vm.step = formDataService.getStep();
+        formDataService.setStep(num)
+        vm.step = formDataService.getStep();
     }
 
 }
+
