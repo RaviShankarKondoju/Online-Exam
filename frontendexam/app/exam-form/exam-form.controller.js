@@ -31,9 +31,8 @@ function PollCtrl(examService,formDataService) {
     //     });
     // }
 
-    function onUserDidSubmit(title,text) {
-        console.log(vm.survey)
-        return examService.create(title, text)
+    function onUserDidSubmit(questions) {
+        return examService.create(questions)
             // .then(onUserDidReset)
             // .catch(vm.showError);
     }
