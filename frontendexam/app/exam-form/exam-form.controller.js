@@ -1,11 +1,11 @@
-function PollCtrl(formDataService) {
+function PollCtrl(examService,formDataService) {
     var vm = this;
     //
     vm.$onInit = $onInit;
     // vm.refreshExam = refreshExam;
     //
-    // vm.onSubmit = vm.onSubmit || onUserDidSubmit;
-    // // vm.onReset  = vm.onReset || onUserDidReset;
+    vm.onSubmit = vm.onSubmit || onUserDidSubmit;
+    // vm.onReset  = vm.onReset || onUserDidReset;
     //
     // vm.showError = showError;
     vm.addNewQuestion = addNewQuestion;
@@ -13,31 +13,36 @@ function PollCtrl(formDataService) {
     vm.remove = remove;
     vm.uncheckSiblings = uncheckSiblings;
 
-    vm.survey = { 'title' : '', 'questions': [ { id: 1, 'title' : '', 'answers' : [{id: 1, 'title' : ''/*, 'correct' : 0*/}, {id: 2, 'title' : ''/*, 'correct' : 0*/}] } ] };
 
     //
     function $onInit() {
-        vm.exam = [];
+        vm.quiz = [];
         // vm.refreshExam();
     }
 
+    vm.survey = {
+        'title': '',
+        'questions': [{id: 1, 'title': '', 'answers': [{id: 1, 'title': ''}, {id: 2, 'title': ''}]}]
+    };
+    formDataService.addData(vm.survey);
     // function refreshExam() {
     //     return examService.list().then(function refreshedExam(response) {
     //         vm.exam = response.data;
     //     });
     // }
 
-    // function onUserDidSubmit(title) {
-    //     return examService.create(title)
-    //         .then(onUserDidReset)
-    //         .catch(vm.showError);
-    // }
+    function onUserDidSubmit(title,text) {
+        console.log(vm.survey)
+        return examService.create(title, text)
+            // .then(onUserDidReset)
+            // .catch(vm.showError);
+    }
     //
     // //
     // function onUserDidReset() {
     //     vm.title = '';
-    //     vm.quiz.$setPristine();
-    //     vm.quiz.$setUntouched();
+    //     // vm.quiz.$setPristine();
+    //     // vm.quiz.$setUntouched();
     // }
     //
     // //
@@ -46,34 +51,34 @@ function PollCtrl(formDataService) {
     // }
 
     function addNewQuestion() {
-        var newQuestionNo = vm.survey.questions.length+1;
-        vm.survey.questions.push({ 'id': newQuestionNo, 'title' : '', 'answers' : [{ id: 1, 'title' : '', 'correct' : 0}, {id: 2, 'title' : ''/*, 'correct' : 0*/ }] });
+
+        var newQuestionNo = vm.survey.questions.length + 1;
+        vm.survey.questions.push({
+            'id': newQuestionNo,
+            'title': '',
+            'answers': [{id: 1, 'title': '', 'correct': 0}, {id: 2, 'title': ''}]
+        });
     }
 
-    function addNewAnswer() {
-        var newAnswerNo = this.question.answers.length+1;
-        this.question.answers.push({ 'id': newAnswerNo, 'title' : ''/*, 'correct' : 0*/ });
+      function addNewAnswer(question) {
+        console.log(question);
+        var newAnswerNo = question.answers.length + 1;
+        question.answers.push({'id': newAnswerNo, 'title': ''});
     }
 
     function remove(item, items) {
 
         items.splice(items.indexOf(item), 1);
-        items.forEach( function (elem) {
-            elem.id = items.indexOf(elem)+1;
-            // if(item.correct) elem.correct = 0;
+        items.forEach(function (elem) {
+            elem.id = items.indexOf(elem) + 1;
         });
-        // set new step for form
         formDataService.setStep();
     }
 
     function uncheckSiblings() {
 
-        if(item.correct) {
+        if (item.correct) {
             vm.selected = item;
-            // items.forEach( function (elem) {
-            // 	if (elem != $scope.selected) elem.correct = 0;
-            // });
-            // console.log(item);
         }
 
     }
