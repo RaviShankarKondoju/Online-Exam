@@ -2,20 +2,20 @@ function examService($http, $interpolate) {
     var exam = $interpolate('/api/exam/{{id}}');
 
     return {
-        list: list,
+        // list: list,
         create: create
         // destroy: destroy,
         // update: update
     };
+    //
+    // function list() {
+    //     return $http.get(quiz());
+    // }
 
-    function list() {
-        return $http.get(exam());
-    }
-
-    function create(title) {
+    function create(title, text) {
         var data = {
-            title: title
-            // text: text
+            title: title,
+            text: text
         };
 
         return $http.post(exam(), data);
