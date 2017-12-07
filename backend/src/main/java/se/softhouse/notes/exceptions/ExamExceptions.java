@@ -2,10 +2,8 @@ package se.softhouse.notes.exceptions;
 
 import java.util.function.Supplier;
 
-/**
- * @todo: this class should be renamed to 'MyProjectExceptions' for your projects
- */
-public enum NoteExceptions implements Supplier<RuntimeException> {
+
+public enum ExamExceptions implements Supplier<RuntimeException> {
     BAD_REQUEST(with(400, "Bad request to resource")), //
     NOT_AUTHORIZED(with(401, "Unauthorized")), //
     FORBIDDEN(with(403, "Unauthorized")), //
@@ -15,16 +13,16 @@ public enum NoteExceptions implements Supplier<RuntimeException> {
 
     private RuntimeException runtimeException;
 
-    NoteExceptions(RuntimeException exception) {
+    ExamExceptions(RuntimeException exception) {
         this.runtimeException = exception;
     }
 
-    private static NoteException with(Integer statusCode) {
-        return new NoteException(statusCode);
+    private static ExamException with(Integer statusCode) {
+        return new ExamException(statusCode);
     }
 
-    private static NoteException with(Integer statusCode, String message) {
-        return new NoteException(message, statusCode);
+    private static ExamException with(Integer statusCode, String message) {
+        return new ExamException(message, statusCode);
     }
 
     public void raise() {
@@ -32,7 +30,7 @@ public enum NoteExceptions implements Supplier<RuntimeException> {
     }
 
     public void raise(String errorMessageFormat, Object... objects) {
-        throw new NoteException(String.format(errorMessageFormat, objects), runtimeException);
+        throw new ExamException(String.format(errorMessageFormat, objects), runtimeException);
     }
 
     @Override

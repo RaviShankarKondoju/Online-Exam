@@ -1,24 +1,23 @@
 package se.softhouse.notes.db.entity;
 
-import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class Exam {
     private int id;
 
     @NotEmpty
-    private String title;
+    private String questions;
 
     @NotEmpty
-    private String text;
+    private String answers;
 
     public Exam() {
     }
 
-    public Exam(int id, String title, String text) {
+    public Exam(int id, String questions, String answers) {
         this.id = id;
-        this.title = title;
-        this.text = text;
+        this.questions = questions;
+        this.answers = answers;
     }
 
     public int getId() {
@@ -29,19 +28,19 @@ public class Exam {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getQuestions() {
+        return questions;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setQuestions(String questions) {
+        this.questions = questions;
     }
 
-    public String getText() {
-        return text;
+    public String getAnswers() {
+        return answers;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setAnswers(String answers) {
+        this.answers = answers;
     }
 }

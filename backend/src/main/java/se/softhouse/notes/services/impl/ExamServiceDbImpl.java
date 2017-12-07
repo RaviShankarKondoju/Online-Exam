@@ -2,7 +2,7 @@ package se.softhouse.notes.services.impl;
 
 import se.softhouse.notes.db.ExamDAO;
 import se.softhouse.notes.db.entity.Exam;
-import se.softhouse.notes.exceptions.NoteExceptions;
+import se.softhouse.notes.exceptions.ExamExceptions;
 import se.softhouse.notes.services.ExamService;
 
 import java.util.List;
@@ -26,7 +26,7 @@ public class ExamServiceDbImpl implements ExamService {
 
     @Override
     public Exam getExamBy(int id) {
-        return examDAO.get(id).orElseThrow(NoteExceptions.NOT_FOUND);
+        return examDAO.get(id).orElseThrow(ExamExceptions.NOT_FOUND);
     }
 
     @Override
